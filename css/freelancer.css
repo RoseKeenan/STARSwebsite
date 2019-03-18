@@ -1,6 +1,6 @@
 /*!
  * Start Bootstrap - Freelancer v5.0.1 (https://startbootstrap.com/template-overviews/freelancer)
- * Copyright 2013-2018 Start Bootstrap
+ * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-freelancer/blob/master/LICENSE)
  */
 
@@ -49,7 +49,16 @@ hr.star-light {
 
 hr.star-light:after {
   color: #fff;
-  background-color: #18BC9C;
+  background-color: #4cbdcb;
+}
+
+hr.star-light-top:after {
+  color: #fff;
+  background-color: #4cbdcb;
+}
+
+.border-line {
+  border-color: #4cbdcb !important;
 }
 
 hr.star-dark {
@@ -124,7 +133,7 @@ section h2 {
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #18BC9C;
+  color: #4cbdcb;
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
@@ -132,7 +141,7 @@ section h2 {
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #18BC9C;
+  color: #4cbdcb;
 }
 
 #mainNav .navbar-toggler {
@@ -157,11 +166,11 @@ section h2 {
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
     color: #fff;
-    background: #18BC9C;
+    background: #4cbdcb;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
     color: #fff;
-    background: #18BC9C;
+    background: #4cbdcb;
   }
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;
@@ -216,7 +225,7 @@ header.masthead h2 {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
   opacity: 0;
-  background-color: rgba(24, 188, 156, 0.9);
+  background-color: rgba(76, 189, 203, 0.9);
 }
 
 .portfolio .portfolio-item .portfolio-item-caption:hover {
@@ -317,7 +326,7 @@ header.masthead h2 {
 }
 
 .floating-label-form-group-with-focus label {
-  color: #18BC9C;
+  color: #4cbdcb;
 }
 
 form .row:first-child .floating-label-form-group {
@@ -336,11 +345,11 @@ form .row:first-child .floating-label-form-group {
 }
 
 a {
-  color: #18BC9C;
+  color: #4cbdcb;
 }
 
 a:focus, a:hover, a:active {
-  color: #128f76;
+  color: #33a3b1;
 }
 
 .btn {
@@ -348,7 +357,7 @@ a:focus, a:hover, a:active {
 }
 
 .bg-primary {
-  background-color: #18BC9C !important;
+  background-color: #4cbdcb !important;
 }
 
 .bg-secondary {
@@ -356,7 +365,7 @@ a:focus, a:hover, a:active {
 }
 
 .text-primary {
-  color: #18BC9C !important;
+  color: #4cbdcb !important;
 }
 
 .text-secondary {
@@ -364,13 +373,13 @@ a:focus, a:hover, a:active {
 }
 
 .btn-primary {
-  background-color: #18BC9C;
-  border-color: #18BC9C;
+  background-color: #4cbdcb;
+  border-color: #4cbdcb;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #128f76;
-  border-color: #128f76;
+  background-color: #33a3b1;
+  border-color: #33a3b1;
 }
 
 .btn-secondary {
