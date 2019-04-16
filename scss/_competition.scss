@@ -1,0 +1,16 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "Header Header Header" "Project-Description Project-Description Project-Description" "Download-Links Submit Questions";
+  }
+  
+  .Download-Links { grid-area: Download-Links; }
+  
+  .Submit { grid-area: Submit; }
+  
+  .Questions { grid-area: Questions; }
+  
+  .Project-Description { grid-area: Project-Description; }
+  
+  .Header { grid-area: Header; }
