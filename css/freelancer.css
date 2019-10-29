@@ -210,6 +210,16 @@ header.masthead h2 {
   }
 }
 
+.col-centered{
+  float: none;
+  margin: 0 auto;
+  }
+
+  .px-2 {
+    padding-left: 200 !important;
+    padding-right: 200 !important;
+  }
+
 .portfolio {
   margin-bottom: -15px;
 }
