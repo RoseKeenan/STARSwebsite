@@ -1,0 +1,26 @@
+body{
+    justify-content: left;
+    align-content: center;
+    background-color: white;
+}
+
+.title{
+    background-image: linear-gradient(52deg,#44bcc9 0%,#6688bd 100%);
+    width: 100%;
+    color: white;
+    font-family: 'Raleway', sans-serif;    
+    padding: 2%;
+    margin-bottom: 2%;
+    margin-top: 4%;
+}
+
+.content {
+    background-color: #020826;
+    margin-top: 10%;
+}
+
+.inner-content {
+    color: white;
+    padding: 7% 15% 5% 15%;
+    margin-top: -50px;
+}
