@@ -42,7 +42,7 @@ var clearance;
     formData.append("year", year)
     formData.append("committee", committeeArr)
     formData.append("clearance", clearance)
-    const resp = await fetch("http://18.216.97.68/signup-submit/",{
+    const resp = await fetch("https://18.216.97.68/signup-submit/",{
         method:"POST",
         body: formData,
         headers: { "X-CSRFToken": csrftoken },
