@@ -1,0 +1,194 @@
+
+<html>
+    <head>
+        <title>STARS @ TU | Home</title>
+
+        <!-- INDEX HEAD -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="static/css/contact-form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+        <script src = "static/js/signup.js"></script>
+
+
+            <!-- NAVBAR HEAD -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href = "static/css/main.css">
+    <link rel="stylesheet" href = "static/css/navcss.css">
+    <script src = "static/js/contact.js"></script>
+    <link rel="icon" type="image/png" href="static/img/favicon.ico">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <!-- FOOTER HEAD -->
+    <link rel="stylesheet" href="static/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body style="background-color: #020826">
+
+
+    <!-- -------------------------- NAVBAR ----------------------------------------- -->
+
+
+    <div class = "container-fluid fixed-top navbar-custom navbar-expand-lg" id = "navDiv">
+        <nav class="navbar navbar-expand-lg bg-transparent">
+            <a class="navbar-brand" href="/">
+            <img src="static/img/stars_logo.png" alt="STARS CC Logo" id="nav_logo"><span id = "brandText">Stars Computing Corps @ TU</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon" id = "menuCollapse">Menu</span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="signup.html">Member Sign up</a>
+            </li>
+            <!-- <li class="nav-item">
+            <a class="nav-link" href="/newsletter">Newsletter</a>
+            </li> -->
+            <!-- <li class="nav-item">
+            <a class="nav-link" href="/board">Board</a>
+            </li> -->
+            <!--
+            <li class="nav-item">
+            <a class="nav-link" href="/resources">Resources</a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link" href="/events">Events</a>
+            </li>
+            -->
+            <!-- <li class="nav-item">
+            <a class="nav-link" href="/">Gallery</a>
+            </li> -->
+            <!--<li class="nav-item">
+            <a class="nav-link" href="/contact-form">Contact</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/admin">Admin</a>
+            </li> -->
+            <!-- <li class="nav-item">
+            <a class="nav-link" href="/forms">Forms</a>
+            </li> -->
+            <!-- <li class="nav-item">
+            <a class="nav-link" href="/">Question?</a>
+            </li> -->
+            </ul>
+            </div>
+        </nav>
+
+    </div>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/contact-form.css' %}">
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+        <style>
+            #email{
+                width: 98%;
+                margin-left: 5px; 
+                padding: 10px;
+            }
+            select{
+                width: 95%;
+                margin: 1%;
+                margin-bottom: 2%;
+            }
+            #clearance, #committee{
+                width: 95%;
+            }
+            #icon:hover{
+                color:#44bcc9;
+            }
+        </style>
+    </head>
+    <body style="background-color: #020826;">
+        <div class="header">
+            <h3 style="display: inline;">Become a STARS Member</h3>
+        </div>
+        <div class="contact-form tab-content">
+            <div class = "tab-pane active">
+                <div class="form">
+                    <p>Fill out the form below to become a member of <b><i>STARS Computing Corps @ Temple University!</i></b></p>
+                    <p id = "form-msg"></p>
+                    <form method = "POST" onsubmit = "event.preventDefault(); sendForm2()">
+                        <p id = "form_msg"></p>
+                        <label>Contact information:</label>
+                        <br>
+                        <p style = "display: inline;" id = "first_name2_req"></p>
+                        <input type="text" placeholder="First Name" name="first_name" id="first_name2">
+
+                        <p style = "display: inline;" id = "last_name2_req"></p>
+                        <input type="text" placeholder="Last Name" name="last_name"	id="last_name2">     
+                        <br>
+                        <p style = "display: inline;" id = "email2Req"></p>
+                        <input type="text" placeholder="Temple Email Address" name="email" id="email">
+                        
+                        <p style = "display: inline;" id = "relation2Req"></p>
+                        <select name="year" style="margin-left: 15px;" id="year">
+                            <option value="" disabled selected>Grad Year</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="other">other</option>
+                        </select>
+                        <!-- change to multiple select -->
+                        <p style="text-align: center;">Hold Command (Mac) or Control (windows)<br>to select multiple committees</p>
+                        <a style="text-align: center;" href="/index/#">Learn more about committees here!</a>
+                        <select name="Committee" style="margin-left: 15px;" id="committee" multiple>
+                            <option value="" disabled selected>Committee of interest</option>
+                            <option value="Education">Education</option>
+                            <option value="Tech">Tech</option>
+                            <option value="Demo">Demo</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="None">None</option>
+                        </select>
+                        <select name="Clearance" style="margin-left: 15px;" id="clearance">
+                            <option value="" disabled selected>Are you cleared to work with minors?</option>
+                            <option value="Cleared">Yes</option>
+                            <option value="Not Cleared">No</option>
+                            <option value="Not Cleared">IDK</option>
+                        </select>
+                        <button type= "submit" id = "submit-btn">Submit</button>
+                    </form>
+                    <a hidden class = "hidden-link" id= "tab" data-toggle="tab" href="#success-msg">Question</a>
+                </div>
+            </div>
+            <div id="success-msg" class="tab-pane">
+                <h3 style="text-align: center;">Congrats on joining STARS!</h3>
+                <p>Look out for a welcome email from us! In the meantime join our slack @ <a href="https://join.slack.com/t/starstemple/shared_invite/zt-f8kg6jyf-CNzxf2X31ld9I6w7cq_Ouw" target="_blank">TU STARS Slack</a> and download slack <a href = "https://slack.com/downloads/mac" target="_blank">for mac here</a> and <a href = "https://slack.com/downloads/windows" target = "_blank">for windows here!</a></p>
+                <div class="social" style="margin-left: 25%;">
+                    <p>Connect with us on social media!</p>
+                    <a href="https://www.facebook.com/Tustarscc/" target="_blank" class="fa fa-facebook fa-2x" id = "icon"></a>
+                    <a href="https://twitter.com/temple_stars" class="fa fa-twitter fa-2x" target="_blank" id = "icon"></a>
+                    <a href="https://www.reddit.com/user/temple_stars" class="fa fa-reddit fa-2x" target="_blank" id = "icon"></a>
+                    <a href="https://www.instagram.com/stars.temple/" class="fa fa-instagram fa-2x" target="_blank" id = "icon"></a>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+              $(".nav-tabs a").click(function(){
+                $(this).tab('show');
+              });
+            });
+            $( document ).ready(function() {
+                $('.overlay').addClass('fade-in');
+            });
+            </script>
+    </body>
+</html>
