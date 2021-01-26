@@ -1,7 +1,7 @@
 
 scroll()
 
-window.location.href = "http://ec2-18-216-97-68.us-east-2.compute.amazonaws.com/"
+window.location.href = "http://ec2-18-216-97-68.us-east-2.compute.amazonaws.com/signup/"
 let didScroll = false;
 function scroll(){
     console.log('works')
