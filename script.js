@@ -12,10 +12,24 @@ let mouse = {
     radius: (canvas.height/80) * (canvas.width/80)
 }
 
+//get touch position
+let touch = {
+    x: null,
+    y: null,
+    radius: (canvas.height/80) * (canvas.width/80)
+}
+
 window.addEventListener('mousemove',
     function(event){
         mouse.x = event.x;
         mouse.y = event.y
+    }
+)
+
+window.addEventListener('touchmove',
+    function(event){
+        touch.x = touch.x;
+        touch.y = event.y
     }
 )
 
@@ -48,26 +62,36 @@ class Particle{
         }
 
     // check collision detection - mouse poistion / particle position
-
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
-        let distance = Math.sqrt(dx*dx + dy*dy);
-        if(distance < mouse.radius +this.size){
+        
+        if(mouse.x > 0){
+            let dxm = mouse.x - this.x;
+            let dym = mouse.y - this.y;
+            let distanceMouse = Math.sqrt(dxm*dxm + dym*dym);
+            let point = mouse
+        }
+        if(touch.x > 0){
+            let dxt = touch.x - this.x;
+            let dyt = touch.y - this.y;
+            let distanceTouch = Math.sqrt(dxm*dxm + dym*dym);
+            let point = touch
+        }
+         
+        if(distance < point.radius +this.size){
             this.directionX = -this.directionX
             this.directionY = -this.directionY
-            if (mouse.x < this.x && this.x < canvas.width - this.size *10){
+            if (point.x < this.x && this.x < canvas.width - this.size *10){
                 this.x += 10;
                 // this.directionX = -this.directionX
             }
-            if (mouse.x > this.x && this.x > this.size * 10){
+            if (point.x > this.x && this.x > this.size * 10){
                 this.x -= 10;
                 // this.directionX = -this.directionX
             }
-            if(mouse.y < this.y && this.y < canvas.height - this.size * 10){
+            if(point.y < this.y && this.y < canvas.height - this.size * 10){
                 this.y += 10;
                 // this.directionY = -this.directionY
             }
-            if(mouse.y > this.y && this.y > this.size * 10){
+            if(point.y > this.y && this.y > this.size * 10){
                 this.y -= 10;
                 // this.directionY = -this.directionX
             }
@@ -82,17 +106,15 @@ class Particle{
 function init(){
     particlesArray = []
     let numberOfParticles = (canvas.height * canvas.width ) / 10000;
-    for(let i = 0; i < numberOfParticles; i++){
-        let size = (Math.random() * 5 ) +1;
+    for(let i = 0; i < numberOfParticles ; i++){
+        let size = (Math.random()  ) +1;
         let x = (Math.random() * ((innerWidth - size * 2) - size * 2) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - size * 2) + size * 2);
-        let directionX = (Math.random() * 5) - 2.5;
-        let directionY = (Math.random() * 5) - 2.5;
+        let directionX = (Math.random());
+        let directionY = (Math.random());
         let color = '#44bcc9'
 
         particlesArray.push(new Particle(x,y, directionX, directionY, size, color));
-
-
     }
 }
 
@@ -113,9 +135,17 @@ function connect(){
         for(let b = a; b <particlesArray.length; b++){
             let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) 
             + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-            if(distance < (canvas.width/7) * canvas.height/7){
+            if(distance < (canvas.width/10) * canvas.height/10){
                 opacityValue = 1 - (distance/20000)
-                ctx.strokeStyle = 'rgba(68, 188, 201,' + opacityValue + ')';
+                let stroke1 = 'rgba(68, 188, 201,' + opacityValue + ')';
+                let stroke2 = 'rgba(255, 255, 255,' + opacityValue + ')'
+                if(particlesArray[a].size > .5){
+                    ctx.strokeStyle = stroke1;
+                }else{
+                    ctx.strokeStyle = stroke2;
+
+                }
+                
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
