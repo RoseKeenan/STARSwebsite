@@ -9,14 +9,14 @@ let particlesArray;
 let mouse = {
     x: null,
     y: null,
-    radius: (canvas.height/80) * (canvas.width/80)
+    radius: (canvas.height/100) * (canvas.width/100)
 }
 
 //get touch position
 let touch = {
     x: null,
     y: null,
-    radius: (canvas.height/80) * (canvas.width/80)
+    radius: (canvas.height/100) * (canvas.width/100)
 }
 
 window.addEventListener('mousemove',
@@ -63,76 +63,79 @@ class Particle{
 
     // check collision detection - mouse poistion / particle position
         let distance;
-        let point;
-        if(mouse.x > 0){
-            let dxm = mouse.x - this.x;
-            let dym = mouse.y - this.y;
-            let distanceMouse = Math.sqrt(dxm*dxm + dym*dym);
-            let point = mouse
-            distance = distanceMouse;
-            if(distance < mouse.radius +this.size){
-                this.directionX = -this.directionX
-                this.directionY = -this.directionY
-                if (mouse.x < this.x && this.x < canvas.width - this.size *10){
-                    this.x += 10;
-                    // this.directionX = -this.directionX
-                }
-                if (mouse.x > this.x && this.x > this.size * 10){
-                    this.x -= 10;
-                    // this.directionX = -this.directionX
-                }
-                if(mouse.y < this.y && this.y < canvas.height - this.size * 10){
-                    this.y += 10;
-                    // this.directionY = -this.directionY
-                }
-                if(mouse.y > this.y && this.y > this.size * 10){
-                    this.y -= 10;
-                    // this.directionY = -this.directionX
-                }
+        
+        let dxm = mouse.x - this.x;
+        let dym = mouse.y - this.y;
+        let distanceMouse = Math.sqrt(dxm*dxm + dym*dym);
+        let point = mouse
+        distance = distanceMouse;
+        if(distance < mouse.radius +this.size){
+            this.directionX = -this.directionX
+            this.directionY = -this.directionY
+            if (mouse.x < this.x && this.x < canvas.width - this.size *10){
+                this.x += 10;
+                // this.directionX = -this.directionX
+            }
+            if (mouse.x > this.x && this.x > this.size * 10){
+                this.x -= 10;
+                // this.directionX = -this.directionX
+            }
+            if(mouse.y < this.y && this.y < canvas.height - this.size * 10){
+                this.y += 10;
+                // this.directionY = -this.directionY
+            }
+            if(mouse.y > this.y && this.y > this.size * 10){
+                this.y -= 10;
+                // this.directionY = -this.directionX
             }
         }
-        if(touch.x > 0){
-            let dxt = touch.x - this.x;
-            let dyt = touch.y - this.y;
-            let distanceTouch = Math.sqrt(dxm*dxm + dym*dym);
-            distance = distanceTouch
-            if(distance < touch.radius +this.size){
-                this.directionX = -this.directionX
-                this.directionY = -this.directionY
-                if (touch.x < this.x && this.x < canvas.width - this.size *10){
-                    this.x += 10;
-                    // this.directionX = -this.directionX
-                }
-                if (touch.x > this.x && this.x > this.size * 10){
-                    this.x -= 10;
-                    // this.directionX = -this.directionX
-                }
-                if(touch.y < this.y && this.y < canvas.height - this.size * 10){
-                    this.y += 10;
-                    // this.directionY = -this.directionY
-                }
-                if(touch.y > this.y && this.y > this.size * 10){
-                    this.y -= 10;
-                    // this.directionY = -this.directionX
-                }
-            }
-            this.x += this.directionX;
-            this.y += this.directionY;
-            // draw particle
-            this.draw();
-        }
+        this.x += this.directionX;
+        this.y += this.directionY;
+        // draw particle
+        this.draw();
+        
+        // if(touch.x > 0){
+        //     let dxt = touch.x - this.x;
+        //     let dyt = touch.y - this.y;
+        //     let distanceTouch = Math.sqrt(dxm*dxm + dym*dym);
+        //     distance = distanceTouch
+        //     if(distance < touch.radius +this.size){
+        //         this.directionX = -this.directionX
+        //         this.directionY = -this.directionY
+        //         if (touch.x < this.x && this.x < canvas.width - this.size *10){
+        //             this.x += 10;
+        //             // this.directionX = -this.directionX
+        //         }
+        //         if (touch.x > this.x && this.x > this.size * 10){
+        //             this.x -= 10;
+        //             // this.directionX = -this.directionX
+        //         }
+        //         if(touch.y < this.y && this.y < canvas.height - this.size * 10){
+        //             this.y += 10;
+        //             // this.directionY = -this.directionY
+        //         }
+        //         if(touch.y > this.y && this.y > this.size * 10){
+        //             this.y -= 10;
+        //             // this.directionY = -this.directionX
+        //         }
+        //     }
+        //     this.x += this.directionX;
+        //     this.y += this.directionY;
+        //     // draw particle
+        //     this.draw();
+        // }
     }
 }
 
 function init(){
     particlesArray = []
     let numberOfParticles = (canvas.height * canvas.width ) / 10000;
-    for(let i = 0; i < numberOfParticles ; i++){
-        let size = (Math.random()  ) +1;
+    for(let i = 0; i < numberOfParticles*2; i++){
+        let size = (Math.random());
         let x = (Math.random() * ((innerWidth - size * 2) - size * 2) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - size * 2) + size * 2);
-        let directionX = (Math.random());
-        let directionY = (Math.random());
+        let directionX = (Math.random() * 5) - 2.5;
+        let directionY = (Math.random() * 5) - 2.5;
         let color = '#44bcc9'
 
         particlesArray.push(new Particle(x,y, directionX, directionY, size, color));
