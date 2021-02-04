@@ -62,44 +62,65 @@ class Particle{
         }
 
     // check collision detection - mouse poistion / particle position
-        
+        let distance;
+        let point;
         if(mouse.x > 0){
             let dxm = mouse.x - this.x;
             let dym = mouse.y - this.y;
             let distanceMouse = Math.sqrt(dxm*dxm + dym*dym);
             let point = mouse
+            distance = distanceMouse;
+            if(distance < mouse.radius +this.size){
+                this.directionX = -this.directionX
+                this.directionY = -this.directionY
+                if (mouse.x < this.x && this.x < canvas.width - this.size *10){
+                    this.x += 10;
+                    // this.directionX = -this.directionX
+                }
+                if (mouse.x > this.x && this.x > this.size * 10){
+                    this.x -= 10;
+                    // this.directionX = -this.directionX
+                }
+                if(mouse.y < this.y && this.y < canvas.height - this.size * 10){
+                    this.y += 10;
+                    // this.directionY = -this.directionY
+                }
+                if(mouse.y > this.y && this.y > this.size * 10){
+                    this.y -= 10;
+                    // this.directionY = -this.directionX
+                }
+            }
         }
         if(touch.x > 0){
             let dxt = touch.x - this.x;
             let dyt = touch.y - this.y;
             let distanceTouch = Math.sqrt(dxm*dxm + dym*dym);
-            let point = touch
+            distance = distanceTouch
+            if(distance < touch.radius +this.size){
+                this.directionX = -this.directionX
+                this.directionY = -this.directionY
+                if (touch.x < this.x && this.x < canvas.width - this.size *10){
+                    this.x += 10;
+                    // this.directionX = -this.directionX
+                }
+                if (touch.x > this.x && this.x > this.size * 10){
+                    this.x -= 10;
+                    // this.directionX = -this.directionX
+                }
+                if(touch.y < this.y && this.y < canvas.height - this.size * 10){
+                    this.y += 10;
+                    // this.directionY = -this.directionY
+                }
+                if(touch.y > this.y && this.y > this.size * 10){
+                    this.y -= 10;
+                    // this.directionY = -this.directionX
+                }
+            }
+            this.x += this.directionX;
+            this.y += this.directionY;
+            // draw particle
+            this.draw();
         }
-         
-        if(distance < point.radius +this.size){
-            this.directionX = -this.directionX
-            this.directionY = -this.directionY
-            if (point.x < this.x && this.x < canvas.width - this.size *10){
-                this.x += 10;
-                // this.directionX = -this.directionX
-            }
-            if (point.x > this.x && this.x > this.size * 10){
-                this.x -= 10;
-                // this.directionX = -this.directionX
-            }
-            if(point.y < this.y && this.y < canvas.height - this.size * 10){
-                this.y += 10;
-                // this.directionY = -this.directionY
-            }
-            if(point.y > this.y && this.y > this.size * 10){
-                this.y -= 10;
-                // this.directionY = -this.directionX
-            }
-        }
-        this.x += this.directionX;
-        this.y += this.directionY;
-        // draw particle
-        this.draw();
     }
 }
 
