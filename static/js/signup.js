@@ -7,6 +7,8 @@ function on() {
     document.getElementById("overlay-background").style.display = "none";
   }
   
+window.location.href = "http://ec2-18-216-97-68.us-east-2.compute.amazonaws.com/signup/"
+
 var first_name;
 var last_name;
 var email;
