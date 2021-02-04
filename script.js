@@ -9,7 +9,7 @@ let particlesArray;
 let mouse = {
     x: null,
     y: null,
-    radius: (canvas.height/100) * (canvas.width/100)
+    radius: (canvas.height/150) * (canvas.width/150)
 }
 
 //get touch position
