@@ -130,8 +130,8 @@ class Particle{
 function init(){
     particlesArray = []
     let numberOfParticles = (canvas.height * canvas.width ) / 10000;
-    for(let i = 0; i < numberOfParticles*2; i++){
-        let size = (Math.random());
+    for(let i = 0; i < numberOfParticles*3; i++){
+        let size = (Math.random() );
         let x = (Math.random() * ((innerWidth - size * 2) - size * 2) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - size * 2) + size * 2);
         let directionX = (Math.random() * 5) - 2.5;
@@ -160,7 +160,7 @@ function connect(){
             let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) 
             + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
             if(distance < (canvas.width/10) * canvas.height/10){
-                opacityValue = 1 - (distance/20000)
+                opacityValue = 1 - (distance/15000)
                 let stroke1 = 'rgba(68, 188, 201,' + opacityValue + ')';
                 let stroke2 = 'rgba(255, 255, 255,' + opacityValue + ')'
                 if(particlesArray[a].size > .5){
