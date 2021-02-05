@@ -61,12 +61,13 @@ class Particle{
     // check particle position, check mouse position, move the particle, draw the particle
     update(){
         if(this.x > canvas.width || this.x < 0){
-            this.directionX = -this.directionX*.5;
+            this.directionX = -this.directionX*.8;
         }
         if(this.y > canvas.height || this.y < 0){
-            this.directionY = -this.directionY*.5;
+            this.directionY = -this.directionY*.8;
         }
 
+        
     // check collision detection - mouse poistion / particle position
         let distance;
         
@@ -76,8 +77,8 @@ class Particle{
         let point = mouse
         distance = distanceMouse;
         if(distance < mouse.radius +this.size){
-            this.directionX = -this.directionX*1.2
-            this.directionY = -this.directionY*1.2
+            this.directionX = -this.directionX*1.1
+            this.directionY = -this.directionY*1.1
             if (mouse.x < this.x && this.x < canvas.width - this.size *10){
                 this.x += 10;
                 // this.directionX = -this.directionX
@@ -137,13 +138,12 @@ function init(){
     particlesArray = []
     let numberOfParticles = (canvas.height * canvas.width ) / 10000;
     for(let i = 0; i < numberOfParticles*2; i++){
-        let size = (Math.random() );
+        let size = (Math.random() *2)+1;
         let x = (Math.random() * ((innerWidth - size * 2) - size * 2) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - size * 2) + size * 2);
         let directionX = (Math.random() * 2) - 1.5;
         let directionY = (Math.random() * 2) - 1.5;
         let color = '#44bcc9'
-
         particlesArray.push(new Particle(x,y, directionX, directionY, size, color));
     }
 }
