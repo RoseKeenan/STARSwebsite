@@ -9,7 +9,7 @@ let particlesArray;
 let mouse = {
     x: null,
     y: null,
-    radius: (canvas.height/150) * (canvas.width/150)
+    radius: (canvas.height/90) * (canvas.width/90)
 }
 
 //get touch position
@@ -33,6 +33,11 @@ window.addEventListener('touchmove',
     }
 )
 
+
+// class Shape{
+//     constructor(x, y, width, height)
+// }
+
 // create particle
 class Particle{
     constructor(x, y, directionX, directionY, size, color){
@@ -42,9 +47,8 @@ class Particle{
         this.directionY = directionY;
         this.size = size;
         this.color = color;
-
-
     }
+
 // method to draw individual particle
     draw(){
         ctx.beginPath();
@@ -52,13 +56,15 @@ class Particle{
         ctx.fillStyle = '#FFFFFF'
         ctx.fill();
     }
+
+
     // check particle position, check mouse position, move the particle, draw the particle
     update(){
         if(this.x > canvas.width || this.x < 0){
-            this.directionX = -this.directionX;
+            this.directionX = -this.directionX*.5;
         }
         if(this.y > canvas.height || this.y < 0){
-            this.directionY = -this.directionY;
+            this.directionY = -this.directionY*.5;
         }
 
     // check collision detection - mouse poistion / particle position
@@ -70,8 +76,8 @@ class Particle{
         let point = mouse
         distance = distanceMouse;
         if(distance < mouse.radius +this.size){
-            this.directionX = -this.directionX
-            this.directionY = -this.directionY
+            this.directionX = -this.directionX*1.2
+            this.directionY = -this.directionY*1.2
             if (mouse.x < this.x && this.x < canvas.width - this.size *10){
                 this.x += 10;
                 // this.directionX = -this.directionX
@@ -130,12 +136,12 @@ class Particle{
 function init(){
     particlesArray = []
     let numberOfParticles = (canvas.height * canvas.width ) / 10000;
-    for(let i = 0; i < numberOfParticles*3; i++){
+    for(let i = 0; i < numberOfParticles*2; i++){
         let size = (Math.random() );
         let x = (Math.random() * ((innerWidth - size * 2) - size * 2) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - size * 2) + size * 2);
-        let directionX = (Math.random() * 5) - 2.5;
-        let directionY = (Math.random() * 5) - 2.5;
+        let directionX = (Math.random() * 2) - 1.5;
+        let directionY = (Math.random() * 2) - 1.5;
         let color = '#44bcc9'
 
         particlesArray.push(new Particle(x,y, directionX, directionY, size, color));
@@ -159,17 +165,17 @@ function connect(){
         for(let b = a; b <particlesArray.length; b++){
             let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) 
             + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-            if(distance < (canvas.width/10) * canvas.height/10){
+            if(distance < (canvas.width/7) * canvas.height/7){
                 opacityValue = 1 - (distance/15000)
                 let stroke1 = 'rgba(68, 188, 201,' + opacityValue + ')';
                 let stroke2 = 'rgba(255, 255, 255,' + opacityValue + ')'
-                if(particlesArray[a].size > .5){
-                    ctx.strokeStyle = stroke1;
-                }else{
-                    ctx.strokeStyle = stroke2;
+                // if(particlesArray[a].size > .5){
+                //     ctx.strokeStyle = stroke1;
+                // }else{
+                //     ctx.strokeStyle = stroke2;
 
-                }
-                
+                // }
+                ctx.strokeStyle = stroke1;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
