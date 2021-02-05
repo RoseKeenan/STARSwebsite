@@ -9,7 +9,7 @@ let particlesArray;
 let mouse = {
     x: null,
     y: null,
-    radius: (canvas.height/90) * (canvas.width/90)
+    radius: (canvas.height/140) * (canvas.width/140)
 }
 
 //get touch position
@@ -60,10 +60,16 @@ class Particle{
 
     // check particle position, check mouse position, move the particle, draw the particle
     update(){
-        if(this.x > canvas.width || this.x < 0){
+        if(this.x > canvas.width -3 || this.x < 2){
+            // if(Math.abs(this.directionX) < .8){
+            //     this.directionX = -this.directionX*1.1
+            // }
             this.directionX = -this.directionX*.8;
         }
-        if(this.y > canvas.height || this.y < 0){
+        if(this.y > canvas.height -3 || this.y < 2){
+            // if(Math.abs(this.directionY) < .2){
+            //     this.directionY = -this.directionY*1.1
+            // }
             this.directionY = -this.directionY*.8;
         }
 
@@ -77,14 +83,14 @@ class Particle{
         let point = mouse
         distance = distanceMouse;
         if(distance < mouse.radius +this.size){
-            this.directionX = -this.directionX*1.1
-            this.directionY = -this.directionY*1.1
+            this.directionX = -this.directionX*1
+            this.directionY = -this.directionY*1
             if (mouse.x < this.x && this.x < canvas.width - this.size *10){
                 this.x += 10;
                 // this.directionX = -this.directionX
             }
             if (mouse.x > this.x && this.x > this.size * 10){
-                this.x -= 10;
+                this.x -= 0;
                 // this.directionX = -this.directionX
             }
             if(mouse.y < this.y && this.y < canvas.height - this.size * 10){
@@ -141,8 +147,8 @@ function init(){
         let size = (Math.random() *2)+1;
         let x = (Math.random() * ((innerWidth - size * 2) - size * 2) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - size * 2) + size * 2);
-        let directionX = (Math.random() * 2) - 1.5;
-        let directionY = (Math.random() * 2) - 1.5;
+        let directionX = (Math.random() * 3) - 1.5;
+        let directionY = (Math.random() * 3) - 1.5;
         let color = '#44bcc9'
         particlesArray.push(new Particle(x,y, directionX, directionY, size, color));
     }
