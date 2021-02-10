@@ -7,8 +7,6 @@ function on() {
     document.getElementById("overlay-background").style.display = "none";
   }
   
-window.location.href = "http://ec2-18-216-97-68.us-east-2.compute.amazonaws.com/signup/"
-
 var first_name;
 var last_name;
 var email;
@@ -22,7 +20,7 @@ var clearance;
     email = document.getElementById("email").value
     year = document.getElementById('year').value
     committee = document.getElementById('committee')
-    clearance = document.getElementById('clearance').value
+    clearance = ""
     for ( var i = 0; i < committee.selectedOptions.length; i++) {
         var val = committee.selectedOptions[i].value
         committeeArr.push(val)
@@ -44,7 +42,7 @@ var clearance;
     formData.append("year", year)
     formData.append("committee", committeeArr)
     formData.append("clearance", clearance)
-    const resp = await fetch("https://18.216.97.68/signup-submit/",{
+    const resp = await fetch("http://18.216.97.68/signup-submit/",{
         method:"POST",
         body: formData,
         headers: { "X-CSRFToken": csrftoken },
@@ -60,6 +58,19 @@ var clearance;
     }
 }
 
+function showCommittees(){
+    document.getElementById("first_name2").value = ""
+    document.getElementById("last_name2").value = ""
+    document.getElementById("email").value = ""
+    document.getElementById('year').value = ""
+    document.getElementById('committee').value = ""
+
+    let submitBtn = document.getElementById('submit-btn');
+    window.location.href = "#committees"
+    let btn = document.getElementsByClassName("hidden-link") 
+    $(btn).trigger('click'); 
+}
+
 function submitSuccess2(){
     console.log("reached")
     document.getElementById("first_name2").value = ""
@@ -67,7 +78,6 @@ function submitSuccess2(){
     document.getElementById("email").value = ""
     document.getElementById('year').value = ""
     document.getElementById('committee').value = ""
-    document.getElementById('clearance').value = ""
     let submitBtn = document.getElementById('submit-btn');
     window.location.href = "#success-msg"
     let btn = document.getElementsByClassName("hidden-link") 

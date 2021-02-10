@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <title>STARS @ TU | Home</title>
+        <title>STARS @ TU | Signup</title>
 
         <!-- INDEX HEAD -->
 
@@ -39,62 +39,63 @@
 
 
     <!-- -------------------------- NAVBAR ----------------------------------------- -->
+ <!-- -------------------------- NAVBAR ----------------------------------------- -->
 
 
-    <div class = "container-fluid fixed-top navbar-custom navbar-expand-lg" id = "navDiv">
-        <nav class="navbar navbar-expand-lg bg-transparent">
-            <a class="navbar-brand" href="/">
-            <img src="static/img/stars_logo.png" alt="STARS CC Logo" id="nav_logo"><span id = "brandText">Stars Computing Corps @ TU</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-            <span class="navbar-toggler-icon" id = "menuCollapse">Menu</span>
-            </button>
+ <div class = "container-fluid fixed-top navbar-custom navbar-expand-lg" id = "navDiv">
+    <nav class="navbar navbar-expand-lg bg-transparent">
+    <a class="navbar-brand" href="/index.html">
+  <img src="static/img/stars_logo.png" alt="STARS CC Logo" id="nav_logo"><span id = "brandText">Stars Computing Corps @ TU</span></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+  <span class="navbar-toggler-icon" id = "menuCollapse">Menu</span>
+</button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="signup.html">Member Sign up</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="http://ec2-18-216-97-68.us-east-2.compute.amazonaws.com/members/">Admin</a>
             </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="signup.html">Member Sign up</a>
-            </li>
-            <!-- <li class="nav-item">
-            <a class="nav-link" href="/newsletter">Newsletter</a>
-            </li> -->
-            <!-- <li class="nav-item">
-            <a class="nav-link" href="/board">Board</a>
-            </li> -->
-            <!--
-            <li class="nav-item">
-            <a class="nav-link" href="/resources">Resources</a>
-            </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/newsletter">Newsletter</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/board">Board</a>
+      </li> -->
+<!--
+       <li class="nav-item">
+        <a class="nav-link" href="/resources">Resources</a>
+      </li>
 
-            <li class="nav-item">
-            <a class="nav-link" href="/events">Events</a>
-            </li>
-            -->
-            <!-- <li class="nav-item">
-            <a class="nav-link" href="/">Gallery</a>
-            </li> -->
-            <!--<li class="nav-item">
-            <a class="nav-link" href="/contact-form">Contact</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/admin">Admin</a>
-            </li> -->
-            <!-- <li class="nav-item">
-            <a class="nav-link" href="/forms">Forms</a>
-            </li> -->
-            <!-- <li class="nav-item">
-            <a class="nav-link" href="/">Question?</a>
-            </li> -->
-            </ul>
-            </div>
-        </nav>
-
-    </div>
+      <li class="nav-item">
+        <a class="nav-link" href="/events">Events</a>
+      </li>
+     -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/">Gallery</a>
+      </li> -->
+    <!--  <li class="nav-item">
+        <a class="nav-link" href="/contact-form">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">Admin</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/forms">Forms</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/">Question?</a>
+      </li> -->
+    </ul>
+  </div>
+</nav>
+</div>
     <head>
-        <link rel="stylesheet" href="{% static 'css/contact-form.css' %}">
-        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
         <style>
             #email{
                 width: 98%;
@@ -112,6 +113,14 @@
             #icon:hover{
                 color:#44bcc9;
             }
+            #committee-cards{
+                border: 1px solid #44bcc9;
+                margin: 1%;
+                height: 10%;
+            }
+            #committees{
+                text-align: center;
+            }
         </style>
     </head>
     <body style="background-color: #020826;">
@@ -119,7 +128,7 @@
             <h3 style="display: inline;">Become a STARS Member</h3>
         </div>
         <div class="contact-form tab-content">
-            <div class = "tab-pane active">
+            <div id= "main" class = "tab-pane active">
                 <div class="form">
                     <p>Fill out the form below to become a member of <b><i>STARS Computing Corps @ Temple University!</i></b></p>
                     <p id = "form-msg"></p>
@@ -147,7 +156,7 @@
                         </select>
                         <!-- change to multiple select -->
                         <p style="text-align: center;">Hold Command (Mac) or Control (windows)<br>to select multiple committees</p>
-                        <a style="text-align: center;" href="/index/#">Learn more about committees here!</a>
+                        <!-- <a style="text-align: center;" href="#committees" id= "tab" data-toggle="tab">Learn more about committees here!</a> -->
                         <select name="Committee" style="margin-left: 15px;" id="committee" multiple>
                             <option value="" disabled selected>Committee of interest</option>
                             <option value="Education">Education</option>
@@ -156,12 +165,7 @@
                             <option value="Workshop">Workshop</option>
                             <option value="None">None</option>
                         </select>
-                        <select name="Clearance" style="margin-left: 15px;" id="clearance">
-                            <option value="" disabled selected>Are you cleared to work with minors?</option>
-                            <option value="Cleared">Yes</option>
-                            <option value="Not Cleared">No</option>
-                            <option value="Not Cleared">IDK</option>
-                        </select>
+                        
                         <button type= "submit" id = "submit-btn">Submit</button>
                     </form>
                     <a hidden class = "hidden-link" id= "tab" data-toggle="tab" href="#success-msg">Question</a>
@@ -178,6 +182,15 @@
                     <a href="https://www.instagram.com/stars.temple/" class="fa fa-instagram fa-2x" target="_blank" id = "icon"></a>
                 </div>
             </div>
+            <!-- <div id="committees" class="tab-pane">
+                <button onclick= "window.location.href = '#main'" class="btn">Back</button>
+                <div class="row">
+                    <div class="col-md-5" id = "committee-cards">Education Committee</div>
+                    <div class="col-md-5" id = "committee-cards">Workshop Committee</div>
+                    <div class="col-md-5" id = "committee-cards">Tech Committee</div>
+                    <div class="col-md-5" id = "committee-cards">Demo Committee</div>
+                </div>
+            </div> -->
         </div>
         <script>
             $(document).ready(function(){
@@ -185,7 +198,7 @@
                 $(this).tab('show');
               });
             });
-            $( document ).ready(function() {
+            $(document ).ready(function() {
                 $('.overlay').addClass('fade-in');
             });
             </script>

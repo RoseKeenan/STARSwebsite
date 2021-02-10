@@ -53,24 +53,29 @@ class Particle{
     draw(){
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = '#FFFFFF'
+        ctx.fillStyle = this.color
         ctx.fill();
     }
 
 
     // check particle position, check mouse position, move the particle, draw the particle
     update(){
-        if(this.x > canvas.width -3 || this.x < 2){
-            // if(Math.abs(this.directionX) < .8){
-            //     this.directionX = -this.directionX*1.1
-            // }
-            this.directionX = -this.directionX*.8;
+        if(this.x > canvas.width|| this.x < 0){
+            if(Math.abs(this.directionX) < .8){
+                this.directionX = -this.directionX*1.1
+            }
+            this.directionX = -this.directionX ;
+            // this.size -= .5;
         }
-        if(this.y > canvas.height -3 || this.y < 2){
-            // if(Math.abs(this.directionY) < .2){
-            //     this.directionY = -this.directionY*1.1
-            // }
-            this.directionY = -this.directionY*.8;
+        if(this.y > canvas.height || this.y < 0){
+            if(Math.abs(this.directionY) < .2){
+                this.directionY = -this.directionY*1.1
+            }
+            else{
+                this.directionY = -this.directionY ;
+            }
+            // this.size -= .5;
+            
         }
 
         
@@ -83,8 +88,8 @@ class Particle{
         let point = mouse
         distance = distanceMouse;
         if(distance < mouse.radius +this.size){
-            this.directionX = -this.directionX*1
-            this.directionY = -this.directionY*1
+            this.directionX = -this.directionX
+            this.directionY = -this.directionY
             if (mouse.x < this.x && this.x < canvas.width - this.size *10){
                 this.x += 10;
                 // this.directionX = -this.directionX
@@ -144,12 +149,13 @@ function init(){
     particlesArray = []
     let numberOfParticles = (canvas.height * canvas.width ) / 10000;
     for(let i = 0; i < numberOfParticles*2; i++){
-        let size = (Math.random() *2)+1;
+        let size = (Math.random() * 5);
         let x = (Math.random() * ((innerWidth - size * 2) - size * 2) + size * 2);
         let y = (Math.random() * ((innerHeight - size * 2) - size * 2) + size * 2);
         let directionX = (Math.random() * 3) - 1.5;
         let directionY = (Math.random() * 3) - 1.5;
         let color = '#44bcc9'
+        color = '#020826' // Black hole code
         particlesArray.push(new Particle(x,y, directionX, directionY, size, color));
     }
 }
@@ -162,6 +168,7 @@ function animate(){
         particlesArray[i].update();
     }
     connect();
+    Animation.pause()
 }
 
 // check if particles are close enough to draw line between them
@@ -171,10 +178,25 @@ function connect(){
         for(let b = a; b <particlesArray.length; b++){
             let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) 
             + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+
+            // Black hole code
+            if(distance < 1){
+                particlesArray[a].size += particlesArray[b].size/200
+                particlesArray.remove(particlesArray[b])
+            }
+            if(distance < particlesArray[a].size){
+                particlesArray[a].directionX = -particlesArray[a].directionX
+                particlesArray[a].directionY = -particlesArray[a].directionY
+
+                particlesArray[b].directionX = -particlesArray[b].directionX
+                particlesArray[b].directionY = -particlesArray[b].directionY
+            }
+
             if(distance < (canvas.width/7) * canvas.height/7){
                 opacityValue = 1 - (distance/15000)
+                // opacityValue = ((particlesArray[a].size + particlesArray[b].size)/50)
                 let stroke1 = 'rgba(68, 188, 201,' + opacityValue + ')';
-                let stroke2 = 'rgba(255, 255, 255,' + opacityValue + ')'
+                let stroke2 = 'rgba(255, 255, 255,' + opacityValue + ')';
                 // if(particlesArray[a].size > .5){
                 //     ctx.strokeStyle = stroke1;
                 // }else{
