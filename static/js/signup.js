@@ -1,3 +1,5 @@
+window.location.href = "http://ec2-18-216-97-68.us-east-2.compute.amazonaws.com/signup/"
+
 function on() {
     // $("overlay-background").fadeIn();
     document.getElementById("overlay-background").style.display = "block";
