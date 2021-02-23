@@ -38,12 +38,40 @@ body {
 	font-size: 5vw;
 }
 
+.regBtn {
+	text-align: center;
+	margin: 0 auto;
+	background-color: #020826;
+	border: 1px solid #44bcc9;
+	box-shadow: 0px 0px 4px 0px #44bcc9;
+
+	/* background-image: linear-gradient(150deg,#5ebcff, 30%, #020826 70%); */
+	/* box-shadow: 0px 0px 2px 0px #5ebcff; */
+	color: white;
+	border-radius: 5px;
+	display: block;
+	margin-top: 3%;
+	padding: 10px;
+	/* border: 1px solid #020826; */
+	transition: all 1s ease;
+}
+
+.regBtn:hover {
+	border: 1px solid #020826;
+	box-shadow: 0px 0px 15px 0px #44bcc9;
+	font-size: larger;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transform: all 0.5s ease;
+}
+
 #intro {
 	margin: 0 auto;
 	text-align: center;
 	color: white;
-	margin-top: 15%;
-	margin-bottom: 25%;
+	margin-top: 7%;
+	/* margin-bottom: 25%; */
 	display: inline; 
 	font-size: 4vw;
 }
@@ -110,7 +138,7 @@ body {
 
 #aboutUs {
 	text-align: left;
-	padding-top: 2%;
+	/* padding-top: 2%; */
 	padding-bottom: 2%;
 	padding-right: 2%;
 	padding-left: 2%;
@@ -182,7 +210,7 @@ body {
 .secondBackground {
 	color: white;
 	margin: 0 auto;
-	margin-top: 8%;
+	/* margin-top: 8%; */
 	margin-right: 10%;
 	margin-left: 10%;
 	/*/background-color: #20ab6a;*/
